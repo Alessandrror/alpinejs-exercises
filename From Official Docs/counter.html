@@ -7,11 +7,16 @@
     
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
-    <title>i love alpine js</title>
+    <title>Counter</title>
 </head>
 <body>
-
-    <h1 x-data="{ message: 'I ❤️ Alpine' }" x-text="message"></h1>
+    
+    <div x-data="{ count: 0 }">
+        <p>For a reminder: @ is a shorter syntax instead of x-on:</p>
+        <button x-on:click="count++">Increment</button>
+        <button x-on:click="count--">Decrement</button>
+        <span x-text="count"></span>
+    </div>
 
 </body>
 </html>
