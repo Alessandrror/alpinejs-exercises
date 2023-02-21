@@ -11,7 +11,14 @@
 </head>
 <body>
 
-    
+    <div x-data="{ open: false}">
+        <!-- x-data={ open: false} is the syntax to initialize a var open and let Alpine track it -->
+        <button @click="open = !open">Toggle</button>
+        <!-- @click="open = !open" is the syntax  to read the inverse value of open and conver the button for a toggle button-->
+        <div x-show="open" @click.outside="open = false">Contents...</div>
+        <!-- x-show="open" let Alpine know that this view hear the open event -->
+        <!-- @click.outside="open = false" let Alpine know that the user click outside the box and it should close the box -->
+    </div>
 
 </body>
 </html>
