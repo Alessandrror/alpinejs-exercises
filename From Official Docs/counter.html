@@ -12,10 +12,13 @@
 <body>
     
     <div x-data="{ count: 0 }">
-        <p>For a reminder: @ is a shorter syntax instead of x-on:</p>
+        <!-- "x-data='{ var: value }'" is the syntax to initialize a variable and Alpine can track it -->
         <button x-on:click="count++">Increment</button>
         <button x-on:click="count--">Decrement</button>
+        <!-- "x-on:event='var-listened'" is the syntax to listen an event listened -->
+        <!-- For a reminder: @ is a shorter syntax instead of x-on: -->
         <span x-text="count"></span>
+        <!-- x-text='var-showed'" is the syntax that react to changes of a variable -->
     </div>
 
 </body>
