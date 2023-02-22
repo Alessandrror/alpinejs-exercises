@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <title>search input</title>
+</head>
+<body>
+
+    <div
+        x-data="{
+            search: '',
+            
+            items: ['foo', 'bar', 'baz'],
+
+            get filteredItems() {
+                return this.items.filter(
+                    i => i.startsWith(this.search)
+                )
+            }
+        }"
+    >
+    <!--
+    It is possible to split up into multiple lines the x-data value
+    This is a way to let the code be readable for the programmer
+    -->
+        <input x-model="search" placeholder="Search..."></input>
+        <!-- x-model="value" 
+        is used to "bind" the value of an input element with a data property,
+        so, it means that when anytime the value of the input change the value of search
+        will change to reflect that and this is just a little and simple example to
+        demostrate what x-model is capable to
+        -->
+            <ul>
+                <template x-for="item in filteredItems" :key="item">
+                    <li x-text="item"></li>
+                </template>
+            </ul>
+    </div>
+
+</body>
+</html>
