@@ -1,0 +1,85 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+}
+
+.body {
+  height: 100vh;
+  max-width: 23.4375rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.body .main {
+  background-color: red;
+  width: 21.875rem;
+  padding: 0.625rem;
+  border-radius: 1rem;
+}
+.body .main .alpine-data {
+  background-color: blue;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1rem;
+}
+.body .main .alpine-data .search-bar {
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+.body .main .alpine-data .search-bar input {
+  width: 10rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: aquamarine;
+  padding: 0.5rem;
+}
+.body .main .alpine-data .search-bar input:active {
+  border: none;
+}
+.body .main .alpine-data .search-bar button {
+  width: 7.5rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: aquamarine;
+}
+.body .main .alpine-data img {
+  margin: 1rem;
+  height: 10rem;
+  width: 10rem;
+  border: 0.5rem solid green;
+  border-radius: 1rem;
+}
+.body .main .alpine-data img[src=""] {
+  background-image: url(https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png);
+  background-size: 7.5rem;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.body .footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background-color: black;
+}
+.body .footer p {
+  text-align: center;
+  color: gray;
+}
+.body .footer p a {
+  color: gray;
+}
+
+/*# sourceMappingURL=style.css.map */
