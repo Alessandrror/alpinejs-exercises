@@ -22,3 +22,14 @@ document.addEventListener('alpine:init', () => {
     }))
 })
 
+// document.addEventListener('alpine:init', () => {
+//     Alpine.data('pokemonSearch', () => ({
+//         search: '',
+//         pokemon: null,
+//         searchingPokemon() {
+//             axios.get(`https://pokeapi.co/api/v2/pokemon/${this.search}`)
+//             .then(response => {this.pokemon = response.data})
+//             .catch( (error) => console.log(error));
+//         }
+//     }))
+// })
