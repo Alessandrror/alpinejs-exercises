@@ -12,14 +12,13 @@ html {
 
 .body {
   height: 100vh;
-  max-width: 23.4375rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .body .main {
   background-color: red;
-  width: 21.875rem;
+  width: clamp(17.5rem, 100vw - 0.625rem, 90rem);
   padding: 0.625rem;
   border-radius: 1rem;
 }
