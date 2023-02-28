@@ -1,84 +1,187 @@
-html {
-  scroll-behavior: smooth;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  text-decoration: none;
-  font-family: "Roboto", sans-serif;
+  font-family: "Orbitron", sans-serif;
 }
 
-.body {
-  height: 100vh;
+html {
+  font-size: 62.5%;
+  height: 100%;
+  min-width: 30rem;
+  max-width: 144rem;
+  margin: auto;
+}
+
+body {
+  font-size: 1rem;
+  min-height: 100%;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.header {
+  background-color: rgb(14, 14, 14);
+  padding: 1.25rem;
+  height: 12.5vh;
+  box-shadow: 0 0.8rem 3.2rem 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(0.4rem);
+}
+.header .header__logo {
+  width: 15rem;
+}
+.header .header__repo {
+  color: red;
+  text-decoration: none;
+}
+
+.main {
+  background-color: gray;
+  padding: 1rem;
+  min-height: 100%;
+}
+.main > * {
+  padding: 0.5rem;
+}
+.main .main__title {
+  text-align: center;
+}
+.main .main__searchbar {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+.main .main__searchbar .searchbar__input {
+  width: 100%;
+  border-radius: 2rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0.8rem 3.2rem 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(0.4rem);
+  border-radius: 1rem;
+  border: 0.1rem solid rgba(255, 255, 255, 0.18);
+}
+.main .main__searchbar .searchbar__input:active {
+  border: none;
+  color: gray;
+}
+.main .main__searchbar .searchbar__button {
+  margin-top: 1rem;
+  width: 8rem;
+  height: 4rem;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0.8rem 3.2rem 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(0.4rem);
+  border-radius: 1rem;
+  border: 0.1rem solid rgba(255, 255, 255, 0.18);
+}
+.main .main__searchbar .searchbar__result {
+  margin-top: 1rem;
+  max-width: 100%;
+  height: 2.5rem;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: black;
+}
+.main .main__gridlayout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+.main .main__gridlayout .gridlayout__box {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0.8rem 3.2rem 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(0.4rem);
+  border-radius: 1rem;
+  border: 0.1rem solid rgba(255, 255, 255, 0.18);
+}
+.main .main__gridlayout .gridlayout__box .box__img {
+  border-radius: 1rem;
+  min-width: 10rem;
+  min-height: 10rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.body .main {
-  background-color: red;
-  width: clamp(17.5rem, 100vw - 0.625rem, 90rem);
-  padding: 0.625rem;
-  border-radius: 1rem;
+.main .main__gridlayout .gridlayout__box .box__img img {
+  max-height: 20rem;
+  max-width: 20rem;
 }
-.body .main .alpine-data {
-  background-color: blue;
-  transition: 0.5s;
+.main .main__gridlayout .gridlayout__box .box__title {
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  color: black;
+  text-shadow: 0.2rem 0.2rem gray;
+}
+.main .main__gridlayout .gridlayout__box .box__info {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border-radius: 1rem;
 }
-.body .main .alpine-data .search-bar {
-  width: 100%;
-  padding: 0.5rem;
+.main .main__gridlayout .gridlayout__box .box__info .info__id {
+  font-size: 1.25rem;
+  font-weight: 400;
+  text-shadow: 0.1rem 0.1rem gray;
+}
+.main .gridlayout__error {
   display: flex;
-  justify-content: space-between;
-}
-.body .main .alpine-data .search-bar input {
-  width: 10rem;
-  border: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0.8rem 3.2rem 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(0.4rem);
   border-radius: 1rem;
-  background-color: aquamarine;
-  padding: 0.5rem;
+  border: 0.1rem solid rgba(255, 255, 255, 0.18);
 }
-.body .main .alpine-data .search-bar input:active {
-  border: none;
-}
-.body .main .alpine-data .search-bar button {
-  width: 7.5rem;
-  border: none;
-  border-radius: 1rem;
-  background-color: aquamarine;
-}
-.body .main .alpine-data img {
-  margin: 1rem;
-  height: 10rem;
-  width: 10rem;
-  border: 0.5rem solid green;
-  border-radius: 1rem;
-}
-.body .main .alpine-data img[src=""] {
-  background-image: url(https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png);
-  background-size: 7.5rem;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.body .footer {
-  position: absolute;
-  right: 0;
+
+.footer {
+  padding: 1rem;
+  position: sticky;
   bottom: 0;
-  left: 0;
-  margin: auto;
-  background-color: black;
+  height: 7.5vh;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0.8rem 3.2rem 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(0.4rem);
+  border-radius: 1rem 1rem 0 0;
+  border: 0.1rem solid rgba(255, 255, 255, 0.18);
 }
-.body .footer p {
+.footer .footer__info {
+  color: white;
   text-align: center;
-  color: gray;
+  font-size: 2rem;
+  text-shadow: 0.1rem 0.1rem grey;
 }
-.body .footer p a {
-  color: gray;
+.footer .footer__info a {
+  text-decoration: none;
+  color: white;
+}
+.footer .footer__info a:hover {
+  color: red;
+}
+
+@media (min-width: 480px) {
+  .main .main__gridlayout {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 679px) {
+  .main .main__gridlayout {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .main .main__gridlayout {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+@media (min-width: 1440px) {
+  .main .main__gridlayout {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
