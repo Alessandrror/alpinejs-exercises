@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine Course</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div x-data="{
+            open: false, 
+            name: 'Alessandro',
+            search: '',
+            posts: [
+                {title: 'Post One'},
+                {title: 'Post Two'},
+                {title: 'Post Three'},
+                {title: 'Post Four'}
+            ]
+            }" class="main__container">
+            <button @click="open = !open" x-bind:class="open ? 'activo' : 'inactivo'">Toggle</button>
+            <div x-show="open" x-cloak x-transition class="container__show">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, mollitia.</p>
+            </div>
+
+            <div>
+                The value of the name is <span x-text="name"></span>
+            </div>
+
+            <div x-effect="console.log(open)"></div>
+
+            <div>
+                <input type="search" placeholder="Search for something..." x-model="search">
+                <p>
+                    <span>Searching for: </span>
+                    <span x-text="search"></span>
+                </p>
+            </div>
+
+            <template x-if="open" x-cloak x-transition>
+                <div>
+                    Template is open or close and it depends of the x-if value true or false
+                </div>
+            </template>
+
+            <h3>x-for template posts</h3>
+            <template x-for="post in posts">
+                <div x-text="post.title"></div>
+            </template>
+            <button x-on:click="posts.push({title: 'New Post'})" >Add Post with x-for</button>
+
+            <div>
+                <div x-ref="text"></div>
+                <button @click="$refs.text.innerText = 'Hello World'" >Click $refs.text.innerText = 'Hello World' button</button>
+                <button @click="$refs.text.innerText = ''" >Click $refs.text.innerText = '' button</button>
+                <button @click="$refs.text.remove()" >Click $refs.text.remove() button</button>
+            </div>
+
+            <div x-html="(await axios.get('./partial.html')).data"></div>
+
+            <button @click="$el.innerHTML = 'Contenido 2'">Contenido 1</button>
+
+            <div x-init="$watch('posts', value => console.log(value))"></div>
+
+            <div @notify="alert('Has sido notificado con @click=$dispatch(notify) desde el boton hijo y @notify desde el div padre')">
+                <button @click="$dispatch('notify')">Dispatch button notify</button>
+            </div>
+
+            <div>
+                <button @click="getLatestPost($data.posts)">Obtener el ultimo post con $data</button>
+            </div>
+        </div>
+
+        <!-- x-data dice a alpine que trackee, @click es un acortador de x-on:click y escucha un evento -->
+        <!-- x-show le dice a alpine que muestre si la variable es true y esconda si es false -->
+        <!-- x-cloak le dice a alpine que antes de cargar siga ciertos patrones -->
+        <!-- x-transition le agrega una pequeña transicion a x-show -->
+        <!-- x-text le dice a alpine que muestre el valor del key que guarda -->
+        <!-- x-effect permite que alpine habilite javascript para realizar una funcion como console.log o alert -->
+        <!-- x-bind permite que alpine altere cualquier atributo html, su acortador es unicamente : antes del atributo a seleccionar-->
+        <!-- x-model trackea algun key value para colocarlo dentro de un input o lee el valor dentro del input y lo imprime con x-text -->
+        <!-- x-if permite mostrar algo si una condicion se cumple -->
+        
+        <!-- x-for permite hacer un bucle al estilo key of keys como python y puedo mostrar la iteracion con x-text="key.valor" -->
+        <!-- podemos agregar mas valores a un array llamando un evento de alpine y agregando la funcion de js que queremos ejecutar -->
+
+        <!-- x-ref='somevalue' nos permite modificar mediante js lo que queremos mostrar mediante la propiedad magica
+            $refs.somevalue.alguna_funcion_de_javascript, el ejemplo es con un boton -->
+
+        <!-- x-html nos permite cargar html dentro de la etiqueta seleccionado, lo adecuado es usarla para realizar un get -->
+        <!-- dentro de @click="" podemos colocar el atributo magioc $el que hace referencia a si mismo y nos permite manipularlo -->
+        <!-- x-init permite hacer algo al cargar la pagina o inicializar algo al entrar a la pagina -->
+        <!-- $watch es un atributo magico que nos deja ver algo del documento, su estado o datos, etc -->
+        <!-- $dispatch permite crear un evento remoto, es decir, crear una variable que escuche el evento desde un @click y lo envie a otro elemento -->
+        <!-- $data permite acceder a todo el scope de alpine -->
+
+
+    </main>
+
+    <footer x-data>
+        <p>Copyright &copy; <span x-text="new Date().getFullYear()"></span></p>
+
+        <!-- podemos inicializar con alpine cualquier etiqueta usando solo x-data sin pasarle ningun objeto -->
+        <!-- tambien podemos utilizar funciones dentro de x-text -->
+    </footer>
+
+    <script>
+        function getLatestPost(posts) {
+            console.log(posts.slice(-1).pop());
+        }
+    </script>
+</body>
+</html>
