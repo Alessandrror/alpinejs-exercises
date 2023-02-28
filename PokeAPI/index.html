@@ -5,29 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <script defer src="app/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="app/config.js"></script>
+    <script defer src="app/app.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="shortcut icon" href="#" type="image/x-icon">
     <title>Poke API</title>
 </head>
-<body class="body">
+<body>
     
-    <main class="main">
-        <div x-data="pokemonSearch" class="alpine-data">
+    <header class="header">
+    
+        <img class="header__logo" src="https://miro.medium.com/max/1400/1*lXH0CroMTAQKIfDzn-brPw.png" alt="Logo">
+        <a class="header__repo" href="#">Yeah this is another PokeAPI just click If you want to see the repo</a>
+    
+    </header>
+    
+    <main id="maindoc" class="main">
+        
+        <div class="main__title">
+            <h1>PokeAPI</h1>
+            <p>As you can see, this is another PokeAPI but this time it was builded with the super duper lightweight js framework AlpineJS.</p>
+        </div>
+        
+        <div class="main__searchbar" x-data="pokeFetch">
+            <label><input x-model="search" class="searchbar__input" type="text" placeholder="Search..."></label>
+            <button class="searchbar__button" @click="lookFor()" >Click me</button>
+            <span x-text="search" class="searchbar__result"></span>
+        </div>
 
-            <div class="search-bar">
-                <input placeholder="Search Pokemon name..." type="text" x-model="search">
-                <button @click="searchingPokemon()">Buscar Pokemon</button>
-            </div>
-
-            <p>Pokemon: <span x-text="pokemon.name"></span></p>
-            <img :src="pokemon.sprites.front_shiny" alt="Pokemon Image">
+        <div id="container__box" class="main__gridlayout" x-data="pokeFetch" >
+        
+            <!-- <div class="gridlayout__box">
+                <div class="box__img">
+                    <img src="" alt="Pokemon">
+                </div>
+                <h2 x-text="name" class="box__title"></h2>
+                <div class="box__info">
+                    <span class="info__id"></span>
+                </div>
+            </div> -->
 
         </div>
-    </main>
 
+        <!-- <button id="moreBtn">More Pokemons</button> -->
+
+    </main>
+    
     <footer class="footer">
-        <p>Created By: <a href="https://github.com/Alessandrror">Alessandro Rivas</a></p>
+    
+        <div class="footer__info">
+            <p>Created by: <a href="https://github.com/Alessandrror" target="_blank">Alessandro Rivas</a>.</p> 
+        </div>
+    
     </footer>
 
 </body>
