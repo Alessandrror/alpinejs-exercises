@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .delete:hover {
+            cursor: pointer;
+        }
+        .completed {
+            text-decoration: line-through;
+        }
+    </style>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <title>TODO LIST</title>
+</head>
+<body>
+    
+    <div x-data="{ todos: [], userInput: '', }" class="main">
+
+        <form x-on:submit.prevent >
+            <input x-model="userInput" placeholder="Enter todo item..." type="text" >
+            <button @click=" if(userInput.trim().length) 
+            todos.push({name: userInput, completed: false}); 
+            userInput = '' " >Add</button>
+        </form>
+
+        <template x-for="todo in todos" >
+            <div class="todo__box">
+                <input x-model="todo.completed" type="checkbox">
+                <span x-text="todo.name" x-bind:class="{'completed': todo.completed}" class="todo__item" ></span>
+                <button @click="todos = todos.filter((currTodo) => currTodo != todo)" class="delete" >X</button>
+            </div>
+        </template>
+        
+        <button @click="todos = []" x-show="todos.length" >Clear All</button>
+
+        <template x-if="todos.length" >
+            <div>
+                <span x-text="todos.filter((todo) => todo.completed).length"></span>
+                <span>/</span>
+                <span x-text="todos.length"></span>
+                <span> todos completed.</span>
+            </div>
+        </template>
+        <template x-if="!todos.length" >
+            <div>
+                <span>No todos have been founded.</span>
+            </div>
+        </template>
+
+    </div>
+
+</body>
+</html>
