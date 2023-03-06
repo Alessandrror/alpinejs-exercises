@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+    text-decoration: none;
+}
+
+html {
+    height: 100vh;
+}
+
+body {
+    background-color: #2C3333;
+    min-width: 18.75rem;
+    height: clamp(31.25rem, 100%, 62.5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main {
+    background-color: #2C3333;
+    height: clamp(31.25rem, 97%, 62.5rem);
+    position: relative;
+    width: clamp(20rem,100vw,90rem);
+}
+
+.main form {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0 1rem 0.5rem;
+    margin-right: 2.5rem;
+}
+
+.main form input, .main form button {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.75rem;
+    outline-style: none;
+}
+
+.main form input:hover, .main form button:hover {
+    outline-color: blueviolet;
+    outline-style: groove;
+}
+
+.main form input:focus, .main form button:focus {
+    outline-color: blueviolet;
+    outline-style: groove;
+    outline-width: 3px;
+}
+
+.main form input {
+    width: 70%;
+    min-width: 200px;
+    margin-right: 0.5rem;
+    background-color: #2E4F4f;
+    color: white;
+}
+
+.main form input::placeholder {
+    color: white;
+}
+
+.main form input:focus::placeholder {
+    color: #ffffffaa;
+}
+
+.main form button {
+    width: 25%;
+    min-width: 50px;
+    margin-left: 0.5rem;
+    background-color: #0E8388;
+}
+
+.todo__boxes {
+    height: calc(100vh - 10rem);
+    overflow-y: scroll;
+    margin: 0.5rem 2rem 0.5rem 1rem;
+    min-height: 350px;
+    max-height: 840px;
+}
+
+.todo__boxes::-webkit-scrollbar {
+    background-color: #0E8388;
+    width: 0.60rem;
+    border-radius: 0.75rem;
+}
+
+.todo__boxes::-webkit-scrollbar-thumb {
+    background-color: #2E4F4f;
+    border-radius: 0.75rem;
+}
+
+.todo__checkout {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0.5rem;
+}
+
+.todo__clearbtn {
+    padding: 0.65rem 0.5rem;
+    border: none;
+    border-radius: 0.75rem;
+    outline-style: none;
+    width: 7.5rem;
+    background-color: #0E8388;
+    margin-right: 0.5rem;
+}
+
+.delete:hover, .footer__attribution a:hover {
+    cursor: pointer;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    inset: auto 0 0 0;
+    margin: auto;
+    background-color: gray;
+    height: 3%;
+    width: 100vw;
+    min-width: 300px;
+}
+
+.footer__attribution a{
+    color: black;
+}
