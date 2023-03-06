@@ -1,4 +1,4 @@
 ## READ ME
 
-# My AlpineJs walkthrough
+# My AlpineJs Walkthrough
 
