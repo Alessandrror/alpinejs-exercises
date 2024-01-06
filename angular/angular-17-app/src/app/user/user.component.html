@@ -1,0 +1,22 @@
+<section>
+  @if (isLoggedIn) {
+    <div>
+      <h2>Welcome, {{ username }}!</h2>
+      @defer {
+        <img (click)="greet()" src="https://github.com/Alessandrror.png" alt="photo">
+      } @loading (minimum 2s) {
+        <span>Loading...</span>
+      }
+    </div>
+  } @else {
+    <div>
+      <h2>Your not logged in!</h2>
+      <button (click)="isLoggedIn = true">Login</button>
+    </div>
+  }
+  <app-game username="{{ username }}" (addFavoriteEvent)="getFavorite($event)" />
+
+  @if (favGame !== '') {
+    <p>Your favorite game is: {{ favGame }} </p>
+  }
+</section>
