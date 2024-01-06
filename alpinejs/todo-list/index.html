@@ -19,13 +19,13 @@
     <title>TODO LIST</title>
 </head>
 <body>
-    
+
     <div x-data="{ todos: [], userInput: '', }" class="main">
 
         <form x-on:submit.prevent >
             <input x-model="userInput" placeholder="Enter todo item..." type="text" >
-            <button @click=" if(userInput.trim().length) 
-            todos.push({name: userInput, completed: false}); 
+            <button @click=" if(userInput.trim().length)
+            todos.push({name: userInput, completed: false});
             userInput = '' " >Add</button>
         </form>
 
@@ -36,7 +36,7 @@
                 <button @click="todos = todos.filter((currTodo) => currTodo != todo)" class="delete" >X</button>
             </div>
         </template>
-        
+
         <button @click="todos = []" x-show="todos.length" >Clear All</button>
 
         <template x-if="todos.length" >

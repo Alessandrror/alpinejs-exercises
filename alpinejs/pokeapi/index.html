@@ -13,21 +13,21 @@
     <title>Poke API</title>
 </head>
 <body>
-    
+
     <header class="header">
-    
+
         <img class="header__logo" src="https://miro.medium.com/max/1400/1*lXH0CroMTAQKIfDzn-brPw.png" alt="Logo">
         <a class="header__repo" href="#">Yeah this is another PokeAPI just click If you want to see the repo</a>
-    
+
     </header>
-    
+
     <main id="maindoc" class="main">
-        
+
         <div class="main__title">
             <h1>PokeAPI</h1>
             <p>As you can see, this is another PokeAPI but this time it was builded with the super duper lightweight js framework AlpineJS.</p>
         </div>
-        
+
         <div class="main__searchbar" x-data="pokeFetch">
             <label><input x-model="search" class="searchbar__input" type="text" placeholder="Search..."></label>
             <button class="searchbar__button" @click="lookFor()" >Click me</button>
@@ -35,7 +35,7 @@
         </div>
 
         <div id="container__box" class="main__gridlayout" x-data="pokeFetch" >
-        
+
             <!-- <div class="gridlayout__box">
                 <div class="box__img">
                     <img src="" alt="Pokemon">
@@ -51,13 +51,13 @@
         <!-- <button id="moreBtn">More Pokemons</button> -->
 
     </main>
-    
+
     <footer class="footer">
-    
+
         <div class="footer__info">
-            <p>Created by: <a href="https://github.com/Alessandrror" target="_blank">Alessandro Rivas</a>.</p> 
+            <p>Created by: <a href="https://github.com/Alessandrror" target="_blank">Alessandro Rivas</a>.</p>
         </div>
-    
+
     </footer>
 
 </body>

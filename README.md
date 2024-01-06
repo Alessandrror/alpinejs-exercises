@@ -1,4 +1,3 @@
 ## READ ME
 
-# My AlpineJs Walkthrough
-
+Empty.

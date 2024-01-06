@@ -1,47 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
+    <script defer src="dropdown3.0.js"></script>
+    <!-- Apparently it is necessary that the js file load first than the alpinejs cdn -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-    <title>Dropdown 2.0</title>
+    <title>Dropdown 3.0</title>
 </head>
-
 <body>
-
-    <!-- Another cleaner way to achieve the results -->
 
     <div x-data="data()" x-init="start()">
         <button @click="onToggle()">Toggle</button>
         <div x-show="open" @click.outside="clickOutside()">Contents...</div>
     </div>
 
-    <script>
-
-        function data() {
-            return {
-                open: null,
-
-                onStart() {
-                    open = false;
-                },
-
-                onToggle() {
-                    this.open = !this.open;
-                },
-
-                clickOutside() {
-                    this.open = false;
-                }
-            }
-        }
-
-    </script>
-
 </body>
-
 </html>
