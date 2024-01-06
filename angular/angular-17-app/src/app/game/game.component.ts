@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, WritableSignal, signal } from '@angular/core';
 
 @Component({
   selector: 'app-game',
@@ -10,7 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     <p>Choose one by click on it!</p>
     <ul>
       @for (game of games; track game.id) {
-        <li (click)="fav(game.name)">{{ game.name }}</li>
+        <li [class]="selectedGame() === game.id ? 'selected' : '' " (click)="fav(game.name, game.id)">{{ game.name }}</li>
       }
     </ul>
   `,
@@ -24,14 +24,18 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     }
   `
 })
+
 export class GameComponent {
 
   @Input() username = ''
   @Output() addFavoriteEvent = new EventEmitter<string>()
 
-  fav(gameName: string) {
+  selectedGame: WritableSignal<number> = signal(0)
+
+  fav(gameName: string, gameId: number) {
     // alert(`A ${this.username} le gusta jugar a ${gameName}`)
     this.addFavoriteEvent.emit(gameName)
+    this.selectedGame.update(() => gameId)
   }
 
   games = [
